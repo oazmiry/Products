@@ -351,3 +351,6 @@ MigrationBackup/
 
 # Ignore vscode stuff
 .vscode/
+
+# Ignore Rider's stuff
+.idea/
