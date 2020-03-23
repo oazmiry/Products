@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphiQl;
+using GraphQL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,7 @@ namespace Products.SI
             services.AddSingleton(Configuration);
             services.AddTransient<IProductsBusinessLogic, ProductsBusinessLogic>();
             services.AddTransient<IProductsRepository, ProductsRepository>();
+            services.AddScoped<IDocumentExecuter, DocumentExecuter>();
         }
 
         /// <summary>

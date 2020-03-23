@@ -9,11 +9,17 @@ namespace Products.SI.Controllers
     [ApiController]
     public class GraphqlController : ControllerBase
     {
+        private readonly IDocumentExecuter _documentExecutor;
+
+        public GraphqlController(IDocumentExecuter documentExecutor)
+        {
+            _documentExecutor = documentExecutor;
+        }
+
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] GraphQlQuery query)
         {
-
-            var result = await new DocumentExecuter().ExecuteAsync(options =>
+            var result = await _documentExecutor.ExecuteAsync(options =>
             {
                 options.Schema = new ProductsGraphqlApiSchema().ProductsSchema;
                 options.Query = query.Query;
