@@ -2,6 +2,9 @@
 
 namespace Products.SI.GraphQL
 {
+    /// <summary>
+    /// Holds the GraphQL schema for this project's Api.
+    /// </summary>
     public class GraphqlApiSchema
     {
         public ISchema Schema { get; }
