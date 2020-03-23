@@ -29,7 +29,7 @@ namespace Products.SI.GraphQL
           }
 
           type Query {
-              items: [Book]
+              items: [Item]
               seller(id: ID): Seller,
               sellers: [Seller]
           }
