@@ -12,6 +12,7 @@
         <PackageReference Include="GraphQL" Version="2.4.0"/>
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\Products.BL\Products.BL.csproj"/>
         <ProjectReference Include="..\Products.Models\Products.Models.csproj"/>
     </ItemGroup>
 </Project>

@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Products.BL;
+using Products.DAL;
 
 namespace Products.SI
 {
@@ -30,6 +32,8 @@ namespace Products.SI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSingleton(Configuration);
+            services.AddTransient<IProductsBusinessLogic, ProductsBusinessLogic>();
+            services.AddTransient<IProductsRepository, ProductsRepository>();
         }
 
         /// <summary>
