@@ -12,14 +12,13 @@ namespace Products.SI.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] GraphQlQuery query)
         {
-            var inputs = query.Variables.ToInputs();
 
             var result = await new DocumentExecuter().ExecuteAsync(options =>
             {
                 options.Schema = new ProductsGraphqlApiSchema().ProductsSchema;
                 options.Query = query.Query;
                 options.OperationName = query.OperationName;
-                options.Inputs = inputs;
+                options.Inputs = query.Variables.ToInputs();
             });
 
             if (result.Errors?.Count > 0)
