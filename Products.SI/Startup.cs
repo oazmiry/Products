@@ -44,7 +44,7 @@ namespace Products.SI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseGraphiQl("/___graphql");
+                app.UseGraphiQl("/___graphql", "/graphql");
             }
             else
             {
