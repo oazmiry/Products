@@ -1,7 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-  </PropertyGroup>
-
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <!--   I had to downgrade to these packages because Microsoft.AspNetCore.App, with its dependencies, 
+        forces us to not use an ef core version that's newer than this one     -->
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.14"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Products.Models\Products.Models.csproj"/>
+    </ItemGroup>
 </Project>
