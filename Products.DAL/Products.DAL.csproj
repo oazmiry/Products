@@ -9,6 +9,7 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14"/>
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\Products.Exceptions\Products.Exceptions.csproj"/>
         <ProjectReference Include="..\Products.Models\Products.Models.csproj"/>
     </ItemGroup>
 </Project>
