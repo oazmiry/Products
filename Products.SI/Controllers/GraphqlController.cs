@@ -16,7 +16,7 @@ namespace Products.SI.Controllers
 
             var result = await new DocumentExecuter().ExecuteAsync(options =>
             {
-                options.Schema = new GraphqlApiSchema().Schema;
+                options.Schema = new ProductsGraphqlApiSchema().ProductsSchema;
                 options.Query = query.Query;
                 options.OperationName = query.OperationName;
                 options.Inputs = inputs;

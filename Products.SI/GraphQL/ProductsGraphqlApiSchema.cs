@@ -5,13 +5,13 @@ namespace Products.SI.GraphQL
     /// <summary>
     /// Holds the GraphQL schema for this project's Api.
     /// </summary>
-    public class GraphqlApiSchema
+    public class ProductsGraphqlApiSchema
     {
-        public ISchema Schema { get; }
+        public ISchema ProductsSchema { get; }
 
-        public GraphqlApiSchema() 
+        public ProductsGraphqlApiSchema() 
         {
-            Schema = global::GraphQL.Types.Schema.For(@"
+            ProductsSchema = Schema.For(@"
           type Item {
             id: ID
             description: String,
