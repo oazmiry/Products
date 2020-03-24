@@ -30,6 +30,8 @@ namespace Products.SI
             services.AddTransient<IProductsRepository, ProductsRepository>();
             services.AddScoped<IDocumentExecuter, DocumentExecuter>();
             services.AddTransient<IStoreContextFactory, StoreContextFactory>();
+            services.AddSingleton<IDependencyResolver>(s => new 
+                FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<ISchema, GraphqlApiSchema>();
         }
 
