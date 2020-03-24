@@ -1,5 +1,6 @@
 ﻿using GraphiQl;
 using GraphQL;
+using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Products.BL;
 using Products.DAL;
+using Products.SI.GraphQL;
+using Products.SI.GraphQL.Models.Types;
+using Products.SI.GraphQL.Resolvers.Mutation;
+using Products.SI.GraphQL.Resolvers.Query;
 
 namespace Products.SI
 {
@@ -28,8 +33,10 @@ namespace Products.SI
             services.AddSingleton(Configuration);
             services.AddTransient<IProductsBusinessLogic, ProductsBusinessLogic>();
             services.AddTransient<IProductsRepository, ProductsRepository>();
-            services.AddScoped<IDocumentExecuter, DocumentExecuter>();
             services.AddTransient<IStoreContextFactory, StoreContextFactory>();
+            services.AddTransient<IQueryResolver, QueryResolver>();
+            services.AddTransient<IMutationResolver, MutationResolver>();
+            services.AddTransient<IDocumentExecuter, DocumentExecuter>();
             services.AddSingleton<IDependencyResolver>(s => new 
                 FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<ISchema, GraphqlApiSchema>();
