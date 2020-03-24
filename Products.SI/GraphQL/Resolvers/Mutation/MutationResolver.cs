@@ -1,7 +1,7 @@
 ﻿using GraphQL;
 using GraphQL.Types;
 using Products.Models.DataStore;
-using Products.SI.GraphQL.Models.Types;
+using Products.SI.GraphQL.Models.GraphTypes;
 
 namespace Products.SI.GraphQL.Resolvers.Mutation
 {

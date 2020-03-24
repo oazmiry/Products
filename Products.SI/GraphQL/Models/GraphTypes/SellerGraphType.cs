@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
 using Products.Models.DataStore;
 
-namespace Products.SI.GraphQL.Models.Types
+namespace Products.SI.GraphQL.Models.GraphTypes
 {
     /// <summary>
     /// States which fields are exposed by the api for the <see cref="Seller"/> type.
