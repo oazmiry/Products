@@ -2,6 +2,7 @@
 using GraphQL;
 using Microsoft.AspNetCore.Mvc;
 using Products.SI.GraphQL;
+using Products.SI.GraphQL.Models;
 
 namespace Products.SI.Controllers
 {

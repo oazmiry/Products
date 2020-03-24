@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace Products.SI.GraphQL
+namespace Products.SI.GraphQL.Models
 {
     /// <summary>
     /// Structures an incoming query for graphql.
