@@ -4,12 +4,9 @@ using Products.Models.DataStore;
 namespace Products.SI.GraphQL.Resolvers.Mutation
 {
     /// <summary>
-    /// Resolves a business logic action for a GraphQL query.
-    /// This is necessary to decouple the business logic layer from GraphQL,
-    /// which is service-interface-layer-related.
+    /// Should be implemented in order to declare that the class holds fields which handle a mutation.
     /// </summary>
     public interface IMutationResolver : IObjectGraphType
     {
-        Seller AddSeller(string name);
     }
 }

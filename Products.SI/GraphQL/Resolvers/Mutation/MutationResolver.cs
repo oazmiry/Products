@@ -1,6 +1,7 @@
 ﻿using GraphQL;
 using GraphQL.Types;
 using Products.Models.DataStore;
+using Products.SI.GraphQL.Models.Types;
 
 namespace Products.SI.GraphQL.Resolvers.Mutation
 {
@@ -8,10 +9,14 @@ namespace Products.SI.GraphQL.Resolvers.Mutation
     [GraphQLMetadata("Mutation")]
     public class MutationResolver : ObjectGraphType, IMutationResolver
     {
-        [GraphQLMetadata("addSeller")]
-        public Seller AddSeller(string name)
+        public MutationResolver()
         {
-            return null;
+            Field<SellerGraphType>(
+                "addSeller",
+                arguments: new QueryArguments (
+                    new QueryArgument<SellerGraphType> { Name = "seller" }
+                    )
+                );
         }
     }
 }
