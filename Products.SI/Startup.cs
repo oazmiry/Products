@@ -36,6 +36,7 @@ namespace Products.SI
             services.AddTransient<IProductsBusinessLogic, ProductsBusinessLogic>();
             services.AddTransient<IProductsRepository, ProductsRepository>();
             services.AddScoped<IDocumentExecuter, DocumentExecuter>();
+            services.AddTransient<IStoreContextFactory, StoreContextFactory>();
         }
 
         /// <summary>
