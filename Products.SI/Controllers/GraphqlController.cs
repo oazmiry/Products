@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using GraphQL;
+using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
 using Products.SI.GraphQL;
 using Products.SI.GraphQL.Models;
@@ -11,10 +12,12 @@ namespace Products.SI.Controllers
     public class GraphqlController : ControllerBase
     {
         private readonly IDocumentExecuter _documentExecutor;
+        private readonly ISchema _graphqlSchema;
 
-        public GraphqlController(IDocumentExecuter documentExecutor)
+        public GraphqlController(IDocumentExecuter documentExecutor, ISchema graphqlSchema)
         {
             _documentExecutor = documentExecutor;
+            _graphqlSchema = graphqlSchema;
         }
 
         [HttpPost]
@@ -22,7 +25,7 @@ namespace Products.SI.Controllers
         {
             var result = await _documentExecutor.ExecuteAsync(options =>
             {
-                options.Schema = new GraphqlApiSchema().ProductsSchema;
+                options.Schema = _graphqlSchema;
                 options.Query = query.Query;
                 options.OperationName = query.OperationName;
                 options.Inputs = query.Variables.ToInputs();
