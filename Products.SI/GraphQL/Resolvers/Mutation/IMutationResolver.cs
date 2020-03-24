@@ -1,20 +1,15 @@
-﻿using GraphQL;
+﻿using GraphQL.Types;
 using Products.Models.DataStore;
 
-namespace Products.SI.GraphQL
+namespace Products.SI.GraphQL.Resolvers.Mutation
 {
     /// <summary>
     /// Resolves a business logic action for a GraphQL query.
     /// This is necessary to decouple the business logic layer from GraphQL,
     /// which is service-interface-layer-related.
     /// </summary>
-    [GraphQLMetadata("Mutation")]
-    public class MutationResolver
+    public interface IMutationResolver : IObjectGraphType
     {
-        [GraphQLMetadata("addSeller")]
-        public Seller AddSeller(string name)
-        {
-            return null;
-        }
+        Seller AddSeller(string name);
     }
 }
