@@ -4,7 +4,7 @@ using Products.Models.DataStore;
 namespace Products.SI.GraphQL.Models.GraphTypes
 {
     /// <summary>
-    /// States which fields are exposed by the api for the <see cref="Item"/> type.
+    /// Structures which fields are exposed by the api for the <see cref="Item"/> type.
     /// </summary>
     public class ItemGraphType : ObjectGraphType<Item>
     {

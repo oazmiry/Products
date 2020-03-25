@@ -4,7 +4,7 @@ using Products.Models.DataStore;
 namespace Products.SI.GraphQL.Models.GraphTypes
 {
     /// <summary>
-    /// States which fields are exposed by the api for the <see cref="Seller"/> type.
+    /// Structures which fields are exposed by the api for the <see cref="Seller"/> type.
     /// </summary>
     public class SellerGraphType : ObjectGraphType<Seller>
     {
