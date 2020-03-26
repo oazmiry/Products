@@ -5,7 +5,7 @@ namespace Products.BL
 {
     public interface IProductsBusinessLogic
     {
-        Seller GetSeller(int id);
+        Seller GetSellerWithItems(int id);
         IEnumerable<Seller> GetSellersWithItems();
         Item GetItem(int id);
         IEnumerable<Item> GetItemsWithSellers();

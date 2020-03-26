@@ -26,7 +26,7 @@ namespace Products.SI.GraphQL.Resolvers.Query
                 arguments: new QueryArguments(
                     new QueryArgument<IdGraphType> { Name = "id" }
                 ),
-                resolve: context => bl.GetSeller(context.GetArgument<int>("id"))
+                resolve: context => bl.GetSellerWithItems(context.GetArgument<int>("id"))
                 );
             Field<ListGraphType<ItemGraphType>>(
                 "items",

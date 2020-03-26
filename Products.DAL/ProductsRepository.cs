@@ -51,13 +51,13 @@ namespace Products.DAL
             }
         }
 
-        public Seller GetSellerOrDefault(int id)
+        public Seller GetSellerWithItemsOrDefault(int id)
         {
             try
             {
                 using (var context = _contextFactory.GetContext(_connectionString))
                 {
-                    return context.Sellers.Find(id);
+                    return context.Sellers.Include(s => s.Items).Single(s => s.Id == id);
                 }
             }
             catch (SqlException e)

@@ -15,11 +15,11 @@ namespace Products.BL
             _repo = repo;
         }
 
-        public Seller GetSeller(int id)
+        public Seller GetSellerWithItems(int id)
         {
             try
             {
-                return _repo.GetSellerOrDefault(id);
+                return _repo.GetSellerWithItemsOrDefault(id);
             }
             catch (DalException e)
             {
