@@ -7,7 +7,7 @@ namespace Products.DAL
     {
         IEnumerable<Seller> FetchSellersWithItems();
         Seller GetSellerWithItemsOrDefault(int id);
-        Item GetItemWithSellerOrDefault(int id);
         IEnumerable<Item> FetchItemsWithSellers();
+        Item GetItemWithSellerOrDefault(int id);
     }
 }

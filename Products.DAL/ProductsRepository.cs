@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -35,22 +36,6 @@ namespace Products.DAL
             }
         }
 
-        public IEnumerable<Item> FetchItemsWithSellers()
-        {
-            try
-            {
-                using (var context = _contextFactory.GetContext(_connectionString))
-                {
-                    return context.Items.Include(i => i.Seller).ToList();
-                }
-            }
-            catch (SqlException e)
-            {
-                // TODO: Log
-                throw new DalException(e.Message, e);
-            }
-        }
-
         public Seller GetSellerWithItemsOrDefault(int id)
         {
             try
@@ -63,6 +48,23 @@ namespace Products.DAL
             catch (SqlException e)
             {
                 // TODO: Log
+                throw new DalException(e.Message, e);
+            }
+        }
+
+        public IEnumerable<Item> FetchItemsWithSellers()
+        {
+            try
+            {
+                using (var context = _contextFactory.GetContext(_connectionString))
+                {
+                    return context.Items.Include(i => i.Seller).ToList();
+                }
+            }
+            catch (SqlException e)
+            {
+                // TODO: Log
+                // TODO: Change messages to something more indicative.
                 throw new DalException(e.Message, e);
             }
         }
