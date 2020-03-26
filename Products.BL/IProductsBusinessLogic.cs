@@ -9,6 +9,9 @@ namespace Products.BL
         IEnumerable<Seller> GetSellersWithItems();
         Item GetItemWithSeller(int id);
         IEnumerable<Item> GetItemsWithSellers();
-        
+        /// <summary>
+        /// Some logic to get the app ready to run.
+        /// </summary>
+        void InitApp();
     }
 }
