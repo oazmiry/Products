@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Products.BL;
 using Products.DAL;
 using Products.SI.GraphQL;
-using Products.SI.GraphQL.Models.Types;
+using Products.SI.GraphQL.Models.GraphTypes;
 using Products.SI.GraphQL.Resolvers.Mutation;
 using Products.SI.GraphQL.Resolvers.Query;
 
@@ -40,6 +40,8 @@ namespace Products.SI
             services.AddSingleton<IDependencyResolver>(s => new 
                 FuncDependencyResolver(s.GetRequiredService));
             services.AddScoped<ISchema, GraphqlApiSchema>();
+            services.AddTransient<SellerGraphType>();
+            services.AddTransient<ItemGraphType>();
         }
 
         /// <summary>
