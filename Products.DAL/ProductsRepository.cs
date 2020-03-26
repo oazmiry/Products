@@ -31,7 +31,7 @@ namespace Products.DAL
             catch (SqlException e)
             {
                 // TODO: Log
-                throw new DalException(e.Message, e);
+                throw new DalException("Couldn't fetch sellers joined with items", e);
             }
         }
 
@@ -47,7 +47,7 @@ namespace Products.DAL
             catch (SqlException e)
             {
                 // TODO: Log
-                throw new DalException(e.Message, e);
+                throw new DalException("Couldn't fetch seller joined with items", e);
             }
         }
 
@@ -63,8 +63,7 @@ namespace Products.DAL
             catch (SqlException e)
             {
                 // TODO: Log
-                // TODO: Change messages to something more indicative.
-                throw new DalException(e.Message, e);
+                throw new DalException("Couldn't fetch items joined with sellers", e);
             }
         }
 
@@ -80,7 +79,7 @@ namespace Products.DAL
             catch (SqlException e)
             {
                 // TODO: Log
-                throw new DalException(e.Message, e);
+                throw new DalException("Couldn't fetch item joined with seller", e);
             }
         }
 
