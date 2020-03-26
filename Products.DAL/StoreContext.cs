@@ -26,12 +26,20 @@ namespace Products.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Seller>().HasKey(s => s.Id);
+            modelBuilder.Entity<Seller>(seller =>
+            {
+                seller.HasKey(s => s.Id);
+                seller.Property(s => s.Name).IsRequired();
+                seller.HasMany(s => s.Items);
+            });
 
-            modelBuilder.Entity<Item>().HasKey(p => p.Id);
-            modelBuilder.Entity<Item>()
-                .HasOne(p => p.Seller)
-                .WithMany(s => s.Items);
+            modelBuilder.Entity<Item>(item =>
+            {
+                item.HasKey(p => p.Id);
+                item.HasOne(p => p.Seller)
+                    .WithMany(s => s.Items);
+                item.Property(i => i.Description).IsRequired();
+            });
         }
     }
 }
