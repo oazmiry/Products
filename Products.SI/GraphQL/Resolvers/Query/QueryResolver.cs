@@ -19,7 +19,7 @@ namespace Products.SI.GraphQL.Resolvers.Query
         {
             Field<ListGraphType<SellerGraphType>>(
                 "sellers",
-                resolve: _ => bl.GetAllSellers()
+                resolve: _ => bl.GetSellersWithItems()
                 );
             Field<SellerGraphType>(
                 "seller",
