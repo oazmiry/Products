@@ -30,7 +30,7 @@ namespace Products.SI.GraphQL.Resolvers.Query
                 );
             Field<ListGraphType<ItemGraphType>>(
                 "items",
-                resolve: _ => bl.GetAllItems()
+                resolve: _ => bl.GetItemsWithSellers()
                 );
             Field<ItemGraphType>(
                 "item",

@@ -51,7 +51,7 @@ namespace Products.BL
             }
         }
 
-        public IEnumerable<Item> GetAllItems()
+        public IEnumerable<Item> GetItemsWithSellers()
         {
             try
             {
