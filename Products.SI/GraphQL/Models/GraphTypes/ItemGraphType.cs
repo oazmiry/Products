@@ -8,7 +8,6 @@ namespace Products.SI.GraphQL.Models.GraphTypes
     /// </summary>
     public class ItemGraphType : ObjectGraphType<Item>
     {
-        // TODO: Maybe I'll need to add the types classes to the service container.
         public ItemGraphType()
         {
             Field(item => item.Id).Description("Item's id");
