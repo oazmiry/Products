@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -82,6 +81,95 @@ namespace Products.DAL
             {
                 // TODO: Log
                 throw new DalException(e.Message, e);
+            }
+        }
+
+        /// <inheritdoc />
+        public void SetupDatabase()
+        {
+            try
+            {
+                using (var context = _contextFactory.GetContext(_connectionString))
+                {
+                    context.Database.Migrate();
+                }
+            }
+            catch (SqlException e)
+            {
+                // TODO: Log
+                throw new DalException("Can't setup database", e);
+            }
+        }
+
+        public int CountSellers()
+        {
+            try
+            {
+                using (var context = _contextFactory.GetContext(_connectionString))
+                {
+                    return context.Sellers.Count();
+                }
+            }
+            catch (SqlException e)
+            {
+                // TODO: Log
+                throw new DalException("Couldn't count sellers", e);
+            }
+        }
+
+        public int CountItems()
+        {
+            try
+            {
+                using (var context = _contextFactory.GetContext(_connectionString))
+                {
+                    return context.Items.Count();
+                }
+            }
+            catch (SqlException e)
+            {
+                // TODO: Log
+                throw new DalException("Couldn't count items", e);
+            }
+        }
+
+        public void SeedDatabase()
+        {
+            try
+            {
+                using (var context = _contextFactory.GetContext(_connectionString))
+                {
+                    context.Sellers.AddRange(new Seller
+                    {
+                        Name = "Me",
+                        Items = new[]
+                        {
+                            new Item
+                            {
+                                Description = "My first thing",
+                            },
+                            new Item
+                            {
+                                Description = "My second thing",
+                            },
+                        },
+                    }, new Seller
+                    {
+                        Name = "Him",
+                        Items = new[]
+                        {
+                            new Item
+                            {
+                                Description = "His only thing"
+                            },
+                        },
+                    });
+                }
+            }
+            catch (SqlException e)
+            {
+                // TODO: Log
+                throw new DalException("Failed to seed with products", e);
             }
         }
     }
