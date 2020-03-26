@@ -3,14 +3,18 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Products.SI
 {
-    public class Program
+    internal static class Program
     {
-        public static void Main(string[] args)
+        /// <summary>
+        /// The program's entry point.
+        /// <remarks>This method is blocking</remarks>
+        /// </summary>
+        internal static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
     }
