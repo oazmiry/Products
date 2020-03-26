@@ -3,18 +3,18 @@ using Products.Models.DataStore;
 
 namespace Products.DAL
 {
-    public class StoreContext : DbContext
+    public class ProductsContext : DbContext
     {
         private readonly string _connectionString;
         public DbSet<Item> Items { get; set; }
         public DbSet<Seller> Sellers { get; set; }
 
-        public StoreContext(DbContextOptions<StoreContext> options)
+        public ProductsContext(DbContextOptions<ProductsContext> options)
             : base(options)
         {
         }
 
-        public StoreContext(string connectionString)
+        public ProductsContext(string connectionString)
         {
             _connectionString = connectionString;
         }

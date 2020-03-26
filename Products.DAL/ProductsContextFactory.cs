@@ -8,9 +8,9 @@ namespace Products.DAL
         {
         }
 
-        public StoreContext GetContext(string connectionString)
+        public ProductsContext GetContext(string connectionString)
         {
-            return new StoreContext(connectionString);
+            return new ProductsContext(connectionString);
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IProductsContextFactory
     {
-        StoreContext GetContext(string connectionString);
+        ProductsContext GetContext(string connectionString);
     }
 }
