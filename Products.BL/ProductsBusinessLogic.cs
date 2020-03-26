@@ -62,5 +62,23 @@ namespace Products.BL
                 throw new BlException(e.Message, e);
             }
         }
+
+        /// <inheritdoc />
+        public void InitApp()
+        {
+            try
+            {
+                _repo.SetupDatabase();
+                var totalObjectsCount = _repo.CountSellers() + _repo.CountItems();
+                if (totalObjectsCount == 0)
+                {
+                    _repo.SeedDatabase();
+                }
+            }
+            catch (DalException e)
+            {
+                throw new BlException("Failed to init app", e);
+            }
+        }
     }
 }
