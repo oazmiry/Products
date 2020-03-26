@@ -37,7 +37,7 @@ namespace Products.SI.GraphQL.Resolvers.Query
                 arguments: new QueryArguments(
                     new QueryArgument<IdGraphType> { Name = "id" }
                 ),
-                resolve: context => bl.GetItem(context.GetArgument<int>("id"))
+                resolve: context => bl.GetItemWithSeller(context.GetArgument<int>("id"))
                 );
         }
     }

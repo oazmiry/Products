@@ -39,11 +39,11 @@ namespace Products.BL
             }
         }
 
-        public Item GetItem(int id)
+        public Item GetItemWithSeller(int id)
         {
             try
             {
-                return _repo.GetItemOrDefault(id);
+                return _repo.GetItemWithSellerOrDefault(id);
             }
             catch (DalException e)
             {

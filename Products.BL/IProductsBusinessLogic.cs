@@ -7,7 +7,7 @@ namespace Products.BL
     {
         Seller GetSellerWithItems(int id);
         IEnumerable<Seller> GetSellersWithItems();
-        Item GetItem(int id);
+        Item GetItemWithSeller(int id);
         IEnumerable<Item> GetItemsWithSellers();
         
     }
