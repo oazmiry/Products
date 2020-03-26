@@ -8,7 +8,7 @@ using Products.Models.DataStore;
 
 namespace Products.DAL
 {
-    public class ProductsRepository: IProductsRepository
+    public class ProductsRepository : IProductsRepository
     {
         private readonly IStoreContextFactory _contextFactory;
         private readonly string _connectionString;
@@ -35,13 +35,13 @@ namespace Products.DAL
             }
         }
 
-        public IEnumerable<Item> FetchAllItems()
+        public IEnumerable<Item> FetchItemsWithSellers()
         {
             try
             {
                 using (var context = _contextFactory.GetContext(_connectionString))
                 {
-                    return context.Items.ToList();
+                    return context.Items.Include(i => i.Seller).ToList();
                 }
             }
             catch (SqlException e)

@@ -55,7 +55,7 @@ namespace Products.BL
         {
             try
             {
-                return _repo.FetchAllItems();
+                return _repo.FetchItemsWithSellers();
             }
             catch (DalException e)
             {
