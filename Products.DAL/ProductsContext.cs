@@ -9,7 +9,10 @@ namespace Products.DAL
         public DbSet<Item> Items { get; set; }
         public DbSet<Seller> Sellers { get; set; }
 
-        public ProductsContext(DbContextOptions<ProductsContext> options)
+        /// <summary>
+        /// This is necessary to inject options such as in memory and so from tests.
+        /// </summary>
+        public ProductsContext(DbContextOptions options)
             : base(options)
         {
         }
