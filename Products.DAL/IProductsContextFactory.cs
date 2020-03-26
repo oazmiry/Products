@@ -1,6 +1,6 @@
 ﻿namespace Products.DAL
 {
-    public interface IStoreContextFactory
+    public interface IProductsContextFactory
     {
         StoreContext GetContext(string connectionString);
     }

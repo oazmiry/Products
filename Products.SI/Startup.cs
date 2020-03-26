@@ -33,7 +33,7 @@ namespace Products.SI
             services.AddSingleton(Configuration);
             services.AddTransient<IProductsBusinessLogic, ProductsBusinessLogic>();
             services.AddTransient<IProductsRepository, ProductsRepository>();
-            services.AddTransient<IStoreContextFactory, StoreContextFactory>();
+            services.AddTransient<IProductsContextFactory, ProductsContextFactory>();
             services.AddTransient<IQueryResolver, QueryResolver>();
             services.AddTransient<IMutationResolver, MutationResolver>();
             services.AddTransient<IDocumentExecuter, DocumentExecuter>();

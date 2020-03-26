@@ -2,9 +2,9 @@
 
 namespace Products.DAL
 {
-    public class StoreContextFactory : IStoreContextFactory
+    public class ProductsContextFactory : IProductsContextFactory
     {
-        public StoreContextFactory(IConfiguration config)
+        public ProductsContextFactory(IConfiguration config)
         {
         }
 

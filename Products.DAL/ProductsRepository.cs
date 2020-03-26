@@ -10,10 +10,10 @@ namespace Products.DAL
 {
     public class ProductsRepository : IProductsRepository
     {
-        private readonly IStoreContextFactory _contextFactory;
+        private readonly IProductsContextFactory _contextFactory;
         private readonly string _connectionString;
 
-        public ProductsRepository(IStoreContextFactory contextFactory, IConfiguration config)
+        public ProductsRepository(IProductsContextFactory contextFactory, IConfiguration config)
         {
             _contextFactory = contextFactory;
             _connectionString = config.GetConnectionString("Store");
