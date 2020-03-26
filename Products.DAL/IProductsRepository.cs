@@ -5,7 +5,7 @@ namespace Products.DAL
 {
     public interface IProductsRepository
     {
-        IEnumerable<Seller> FetchAllSellers();
+        IEnumerable<Seller> FetchSellersWithItems();
         Seller GetSellerOrDefault(int id);
         Item GetItemOrDefault(int id);
         IEnumerable<Item> FetchAllItems();

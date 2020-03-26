@@ -31,7 +31,7 @@ namespace Products.BL
         {
             try
             {
-                return _repo.FetchAllSellers();
+                return _repo.FetchSellersWithItems();
             }
             catch (DalException e)
             {

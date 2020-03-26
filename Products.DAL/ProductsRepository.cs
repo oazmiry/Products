@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Products.Exceptions;
 using Products.Models.DataStore;
@@ -18,13 +19,13 @@ namespace Products.DAL
             _connectionString = config.GetConnectionString("Store");
         }
 
-        public IEnumerable<Seller> FetchAllSellers()
+        public IEnumerable<Seller> FetchSellersWithItems()
         {
             try
             {
                 using (var context = _contextFactory.GetContext(_connectionString))
                 {
-                    return context.Sellers.ToList();
+                    return context.Sellers.Include(s => s.Items).ToList();
                 }
             }
             catch (SqlException e)
