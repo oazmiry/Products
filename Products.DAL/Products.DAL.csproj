@@ -5,11 +5,17 @@
     <ItemGroup>
         <!--   I had to downgrade to these packages because Microsoft.AspNetCore.App, with its dependencies, 
         forces us to not use an ef core version that's newer than this one     -->
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.14"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.14" />
+        <!--   I had to reference this package (with these weird microsoft stuff) 
+               to enable the Migrations feature of EF Core     -->
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.14">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Products.Exceptions\Products.Exceptions.csproj"/>
-        <ProjectReference Include="..\Products.Models\Products.Models.csproj"/>
+        <ProjectReference Include="..\Products.Exceptions\Products.Exceptions.csproj" />
+        <ProjectReference Include="..\Products.Models\Products.Models.csproj" />
     </ItemGroup>
 </Project>
