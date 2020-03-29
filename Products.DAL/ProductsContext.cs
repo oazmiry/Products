@@ -43,6 +43,40 @@ namespace Products.DAL
                     .WithMany(s => s.Items);
                 item.Property(i => i.Description).IsRequired();
             });
+
+            modelBuilder.Entity<Seller>().HasData(
+                new Seller
+                {
+                    Id = 1,
+                    Name = "Me",
+                },
+                new Seller
+                {
+                    Id = 2,
+                    Name = "Him",
+                }
+            );
+
+            modelBuilder.Entity<Item>().HasData(
+                new Item
+                {
+                    Id = 1,
+                    Description = "My first thing",
+                    SellerId = 1,
+                },
+                new Item
+                {
+                    Id = 2,
+                    Description = "My second thing",
+                    SellerId = 1,
+                },
+                new Item
+                {
+                    Id = 3,
+                    Description = "His only thing",
+                    SellerId = 2,
+                }
+            );
         }
     }
 }
