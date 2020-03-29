@@ -5,7 +5,11 @@ using Products.SI.GraphQL.Models.GraphTypes;
 
 namespace Products.SI.GraphQL.Resolvers.Mutation
 {
-    /// <inheritdoc cref="IMutationResolver"/>
+    /// <summary>
+    /// Resolves a business logic action for a GraphQL mutation.
+    /// This is necessary to decouple the business logic layer from GraphQL,
+    /// which is service-interface-layer-related.
+    /// </summary>
     [GraphQLMetadata("Mutation")]
     public class MutationResolver : ObjectGraphType, IMutationResolver
     {
