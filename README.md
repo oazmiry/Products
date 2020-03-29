@@ -14,6 +14,28 @@ cd Products.SI
 dotnet run
 ```
 
+## Examples
+GraphQL query for sellers with their items:
+```graphql
+query {
+  sellers {
+    name,
+    items {
+     description 
+    }
+  }
+}
+```
+GraphQL mutation for new seller which retrieves only his id:
+```graphql
+mutation {
+  addSeller(name: "New boy") {
+    id
+  }
+}
+
+```
+
 ## Future plans
 * Write a Dockerfile for the service
 * Write a docker-compose.yml file which start the service alongside with an sql server (don't forget to change the connection string)
