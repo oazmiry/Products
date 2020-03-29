@@ -9,7 +9,7 @@ using Products.DAL;
 namespace Products.DAL.Migrations
 {
     [DbContext(typeof(ProductsContext))]
-    [Migration("20200329065821_InitialCreate")]
+    [Migration("20200329091655_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,12 @@ namespace Products.DAL.Migrations
                     b.HasIndex("SellerId");
 
                     b.ToTable("Items");
+
+                    b.HasData(
+                        new { Id = 1, Description = "My first thing", SellerId = 1 },
+                        new { Id = 2, Description = "My second thing", SellerId = 1 },
+                        new { Id = 3, Description = "His only thing", SellerId = 2 }
+                    );
                 });
 
             modelBuilder.Entity("Products.Models.DataStore.Seller", b =>
@@ -50,6 +56,10 @@ namespace Products.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sellers");
+
+                    b.HasData(
+                        new { Id = 1, Name = "Me" }
+                    );
                 });
 
             modelBuilder.Entity("Products.Models.DataStore.Item", b =>

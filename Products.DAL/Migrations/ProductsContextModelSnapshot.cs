@@ -56,8 +56,7 @@ namespace Products.DAL.Migrations
                     b.ToTable("Sellers");
 
                     b.HasData(
-                        new { Id = 1, Name = "Me" },
-                        new { Id = 2, Name = "Him" }
+                        new { Id = 1, Name = "Me" }
                     );
                 });
 
