@@ -13,5 +13,6 @@ namespace Products.BL
         /// Some logic to get the app ready to run.
         /// </summary>
         void InitApp();
+        Seller AddSeller(string name);
     }
 }
