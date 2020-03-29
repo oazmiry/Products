@@ -69,11 +69,6 @@ namespace Products.BL
             try
             {
                 _repo.SetupDatabase();
-                var totalObjectsCount = _repo.CountSellers() + _repo.CountItems();
-                if (totalObjectsCount == 0)
-                {
-                    _repo.SeedDatabase();
-                }
             }
             catch (DalException e)
             {

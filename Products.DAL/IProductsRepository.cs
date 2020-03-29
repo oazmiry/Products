@@ -13,9 +13,5 @@ namespace Products.DAL
         /// Setups database (including migrations).
         /// </summary>
         void SetupDatabase();
-
-        int CountSellers();
-        int CountItems();
-        void SeedDatabase();
     }
 }
