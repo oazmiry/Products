@@ -85,7 +85,25 @@ namespace Products.DAL
 
         public Seller AddSeller(string name)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                using (var context = _contextFactory.GetContext(_connectionString))
+                {
+                    var newEntry = context.Sellers.Add(
+                        new Seller
+                        {
+                            Name = name,
+                        }
+                    );
+                    context.SaveChanges();
+                    return newEntry.Entity;
+                }
+            }
+            catch (SqlException e)
+            {
+                // TODO: Log
+                throw new DalException("Couldn't create new seller", e);
+            }
         }
 
         /// <inheritdoc />
