@@ -83,6 +83,11 @@ namespace Products.DAL
             }
         }
 
+        public Seller AddSeller(string name)
+        {
+            throw new System.NotImplementedException();
+        }
+
         /// <inheritdoc />
         public void SetupDatabase()
         {

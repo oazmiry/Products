@@ -9,6 +9,7 @@ namespace Products.DAL
         Seller GetSellerWithItemsOrDefault(int id);
         IEnumerable<Item> FetchItemsWithSellers();
         Item GetItemWithSellerOrDefault(int id);
+        Seller AddSeller(string name);
         /// <summary>
         /// Setups database (including migrations).
         /// </summary>

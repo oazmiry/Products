@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Products.DAL;
 using Products.Exceptions;
 using Products.Models.DataStore;
@@ -60,6 +59,18 @@ namespace Products.BL
             catch (DalException e)
             {
                 throw new BlException(e.Message, e);
+            }
+        }
+
+        public Seller AddSeller(string name)
+        {
+            try
+            {
+                return _repo.AddSeller(name);
+            }
+            catch (DalException e)
+            {
+                throw new BlException("Failed to add seller", e);
             }
         }
 
