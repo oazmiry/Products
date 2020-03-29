@@ -14,7 +14,7 @@ namespace Products.SI.GraphQL.Resolvers.Mutation
             Field<SellerGraphType>(
                 "addSeller",
                 arguments: new QueryArguments(
-                    new QueryArgument<SellerGraphType> {Name = "name"}
+                    new QueryArgument<NonNullGraphType<StringGraphType>> {Name = "name"}
                 ),
                 resolve: context => bl.AddSeller(context.GetArgument<string>("name"))
             );
