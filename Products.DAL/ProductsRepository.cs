@@ -16,7 +16,7 @@ namespace Products.DAL
         public ProductsRepository(IProductsContextFactory contextFactory, IConfiguration config)
         {
             _contextFactory = contextFactory;
-            _connectionString = config.GetConnectionString("Store");
+            _connectionString = config.GetConnectionString("Products");
         }
 
         public IEnumerable<Seller> FetchSellersWithItems()
