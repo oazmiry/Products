@@ -2,16 +2,23 @@
 Me learning GraphQL, inspired by a [great tutorial](https://dev.to/dotnet/how-you-can-build-a-web-api-using-graphql-net-core-and-entity-framework-1ago)
 
 ## Prerequisites
-* A running Sql Server on "localhost"
-    * The following sql user must be permissioned for the service operations:
-        * username: user1
-        * password: Password1!
+You have two options:
+1) Preferably, Docker.
+2) A running Sql Server on "localhost", with a permissioned user for the credentials in your environment.
 
 
-## Running
+## Running using docker
+From the project's root (at the same level of the .sln file)
+```bash
+docker-compose build
+docker-compose up
+```
+
+## Running from command line
+You may change the appsettings file or create a new one, then run:
 ```bash
 cd Products.SI
-dotnet run
+dotnet run --environment <YourEnv>
 ```
 
 ## Examples
@@ -37,7 +44,5 @@ mutation {
 ```
 
 ## Future plans
-* Write a Dockerfile for the service
-* Write a docker-compose.yml file which start the service alongside with an sql server (don't forget to change the connection string)
 * Write unit tests
 * Write integration tests
